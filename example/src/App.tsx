@@ -23,14 +23,9 @@ const App: React.FC = () => {
       <Linkify options={{
         className: "link",
         nl2br: true,
-        formatHref: (href, type) => {
-          if (type === 'hashtag') {
-            return '/tag/' + href;
-          } else if (type === 'mention') {
-            return '/user' + href;
-          }
-
-          return href;
+        formatHref: {
+          mention: (href) => '/user' + href,
+          hashtag: (href) => '/tag' + href.substring(1),
         }
       }}>
         <h2>Source Code</h2>

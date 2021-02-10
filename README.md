@@ -78,9 +78,50 @@ You can check them at [Linkifyjs Options](https://github.com/Soapbox/linkifyjs/b
 
 The following mainly introduces the newly added and important option items in this library.
 
+##### `formatHref`
+
+**Type**: `formatHref?: ((href: string, type: LinkEntityType) => string) | Partial<Record<LinkEntityType, (href: string) => string>> | null;`
+
+This is useful when finding hashtags and mentions. By `formatHref`, You can change the default `href` of `<a>`.
+
+Useage:
+
+```tsx
+<Linkify
+  options={{
+    formatHref: {
+      mention: (href) => '/user' + href,
+      hashtag: (href) => '/tag' + href.substring(1),
+    }
+  }}
+></Linkfiy>
+```
+
+The `LinkEntityType` type has values of `url`, `email`, `hashtag`, and `mention`.
+
+##### `format`
+
+**Type**: `format?: ((value: string, type: LinkEntityType) => string) | Partial<Record<LinkEntityType, (value: string) => string>> | null;`
+
+Like `formatHref`, Format the text displayed. e.g... cutoff a long URL.
+
+```tsx
+<Linkify
+  options={{
+    format: {
+      url: (value) => value.substr(0, 20),
+    }
+  }}
+></Linkfiy>
+```
+
 ##### `linkWrapper`
 
 When you need to customize the elements of the link, or You want to add some element in the link's parent. It's very useful.
+
+Option's `attributes`, `className` is all of HTML element's attribute, not React node's props.
+
+By this param, It can replace most other params (e.g... `attributes`, `className`, `target`), And make it programable.
 
 **Type**
 ```ts
@@ -94,7 +135,8 @@ linkWrapper?: React.FC<{
 }>;
 ```
 
-**Demo**
+Useage:
+
 ```tsx
 const App: React.FC = () => {
   return (
@@ -226,7 +268,15 @@ In the original package, it only exported the entry point of the state machine.
 
 So, it's so difficult to modify somethings. But now, in this package, I export many important variables from `scanner`, and rewrite the plugin module.
 
-### 
+You can read the code of this library, I will supplement this part of the document as soon as possible.
+
+### Plugin Module
+
+TODO
+
+### State Machine
+
+TODO
 
 ## License
 
