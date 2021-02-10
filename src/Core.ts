@@ -1,4 +1,4 @@
-import { Options as IOptions } from 'linkifyjs';
+import { LinkEntityType, Options as IOptions } from 'linkifyjs';
 import * as _scanner from './overrite/scanner';
 export * from './overrite/options';
 import { Options as OptionsClass } from './overrite/options';
@@ -17,7 +17,7 @@ export interface IOptionsData<EXTRA = any> extends IOptions {
     key: string;
     href: string;
     className?: string;
-    target?: string;
+    target?: string | ((href: string, type: LinkEntityType) => string) | Partial<Record<LinkEntityType, string | null>>;
     [key: string]: any;
   }>;
   extra?: EXTRA;
