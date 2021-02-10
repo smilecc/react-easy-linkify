@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Linkify, LinkifyCore } from 'react-easy-linkify';
+import { Linkify, LinkifyCore } from '../../dist';
 
 // The RegExp is char sets of Chinese, Japanese and Korean
 LinkifyCore.addCharsSupport(/[\u2E80-\u9FFF]/);
@@ -23,6 +23,9 @@ const App: React.FC = () => {
       <Linkify options={{
         className: "link",
         nl2br: true,
+        linkWrapper: {
+          mention: (props) => <a aria-label='mention' {...props}>{props.children}</a>
+        },
         formatHref: {
           mention: (href) => '/user' + href,
           hashtag: (href) => '/tag' + href.substring(1),

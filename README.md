@@ -141,14 +141,17 @@ By this param, It can replace most other params (e.g... `attributes`, `className
 
 **Type**
 ```ts
-linkWrapper?: React.FC<{
+type LinkWrapperType<EXTRA> = React.FC<{
   options: IOptionsData<EXTRA>;
   key: string;
   href: string;
   className?: string;
-  target?: string | ((href: string, type: LinkEntityType) => string) | Partial<Record<LinkEntityType, string | null>>;
+  target?: string;
+  type: LinkEntityType;
   [key: string]: any;
 }>;
+
+linkWrapper?: LinkWrapperType<EXTRA> | Partial<Record<LinkEntityType, LinkWrapperType<EXTRA>>>;
 ```
 
 Useage:
@@ -169,6 +172,27 @@ const App: React.FC = () => {
         google.com
         https://google.com
         https://google.com/search?q=hello你好
+      </Linkify>
+    </div>
+  );
+}
+```
+Or setting of a specific type:
+
+```tsx
+const App: React.FC = () => {
+  return (
+    <div className="App">
+      <Linkify options={{
+        linkWrapper: {
+          mention: (props) => (
+            <div className='wrapper'>
+              <a {...props}>{props.children}</a>
+            </div>
+          )
+        },
+      }}
+      >
       </Linkify>
     </div>
   );

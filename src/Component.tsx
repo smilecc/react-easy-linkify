@@ -44,6 +44,8 @@ export function stringToElements(str: string, opts: Options & IOptionsData) {
       props.target = target;
     }
 
+    props.type = token.type;
+
     // Build up additional attributes
     // Support for events via attributes hash
     if (attributes) {
@@ -52,9 +54,12 @@ export function stringToElements(str: string, opts: Options & IOptionsData) {
       }
     }
 
-    if (opts.options.linkWrapper) {
+    if (typeof opts.options.linkWrapper === 'function') {
       const LinkWrapper = opts.options.linkWrapper;
-      elements.push(<LinkWrapper options={opts} {...props}>{formatted}</LinkWrapper>);
+      elements.push(<LinkWrapper {...props}>{formatted}</LinkWrapper>);
+    } else if (opts.options.linkWrapper && typeof opts.options.linkWrapper === 'object' && (opts.options as any).linkWrapper[token.type]) {
+      const LinkWrapper = (opts.options as any).linkWrapper[token.type];
+      elements.push(<LinkWrapper {...props}>{formatted}</LinkWrapper>);
     } else {
       elements.push(React.createElement(tagName, props, formatted));
     }

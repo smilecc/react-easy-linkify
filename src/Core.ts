@@ -10,16 +10,19 @@ import { inherits as _inherits } from 'linkifyjs/lib/linkify/utils/class';
 // @ts-ignore
 import * as _parser from 'linkifyjs/lib/linkify/core/parser';
 
+export type LinkWrapperType<EXTRA> = React.FC<{
+  options: IOptionsData<EXTRA>;
+  key: string;
+  href: string;
+  className?: string;
+  target?: string;
+  type: LinkEntityType;
+  [key: string]: any;
+}>;
+
 export interface IOptionsData<EXTRA = any> extends IOptions {
   ignoreTags?: string[];
-  linkWrapper?: React.FC<{
-    options: IOptionsData<EXTRA>;
-    key: string;
-    href: string;
-    className?: string;
-    target?: string | ((href: string, type: LinkEntityType) => string) | Partial<Record<LinkEntityType, string | null>>;
-    [key: string]: any;
-  }>;
+  linkWrapper?: LinkWrapperType<EXTRA> | Partial<Record<LinkEntityType, LinkWrapperType<EXTRA>>>;
   extra?: EXTRA;
 }
 
@@ -52,7 +55,7 @@ export function createOptions<EXTRA = any>(data: IOptionsData<EXTRA>): Options<E
 export interface IMultiToken {
   v: Array<{ v: string }>;
   isLink: boolean;
-  type: 'token' | 'email' | 'text' | 'nl' | 'url';
+  type: 'token' | 'email' | 'text' | 'nl' | 'url' | 'hashtag' | 'mention';
 }
 
 export namespace LinkifyCore {
