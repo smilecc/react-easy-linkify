@@ -27,8 +27,10 @@ This package is based on [Linkifyjs](https://github.com/Soapbox/linkifyjs). I re
 
 ## Demo
 
-[Open Demo](https://smilecc.github.io/react-easy-linkify/example/build/)
+[Open Demo Page](https://smilecc.github.io/react-easy-linkify/example/build/)
 
+
+[Lanch with Code Sandbox](https://codesandbox.io/s/react-easy-linkify-ks88r)
 
 ## Installation
 
