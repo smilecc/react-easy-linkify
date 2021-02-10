@@ -1,6 +1,6 @@
-# React Easy Linify
+# React Easy Linkify
 
-React Easy Linify is a Component of React for finding URL/mentions/hashtags and converting them to Links.
+React Easy Linkify is a Component of React for finding URL/mentions/hashtags and converting them to Links.
 
 This package is based on [Linkifyjs](https://github.com/Soapbox/linkifyjs). I rewrote its `scanner`, React Component, and Plugin Module, make them more flexible.
 
@@ -10,6 +10,20 @@ This package is based on [Linkifyjs](https://github.com/Soapbox/linkifyjs). I re
 
 - [Demo](#demo)
 - [Installation](#installation)
+- [Usage](#usage)
+  - [Quick Start](#quick-start)
+  - [Options](#options)
+  - [Plugins](#plugins)
+    - [Mention Plugin](#mention-plugin)
+    - [Hashtag Plugin](#hashtag-plugin)
+    - [Ticket Plugin](#ticket-plugin)
+  - [i18n](#i18n)
+- [Advanced Usage](#advanced-usage)
+  - [Plugin Module](#plugin-module)
+  - [State Machine](#state-machine)
+- [License](#license)
+- [Contributing](#contributing)
+
 
 ## Demo
 
