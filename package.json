@@ -1,8 +1,8 @@
 {
   "name": "react-easy-linkify",
   "private": false,
-  "version": "1.0.4-alpha",
-  "description": "Easy react linkify, includes mention and hashtag. Write with typescript.",
+  "version": "1.0.6-alpha",
+  "description": "Easy react linkify, includes mention and hashtag. Supported i18n, Write with typescript.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "repository": "https://github.com/smilecc/react-easy-linkify",

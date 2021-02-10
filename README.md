@@ -34,7 +34,7 @@ This package is based on [Linkifyjs](https://github.com/Soapbox/linkifyjs). I re
 
 NPM
 ```bash
-npm I react-easy-linkify
+npm i react-easy-linkify
 ```
 
 Or Yarn
