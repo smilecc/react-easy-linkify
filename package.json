@@ -5,7 +5,7 @@
   "description": "Easy react linkify, includes mention and hashtag. Write with typescript.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "repository": "https://github.com/github.com/smilecc",
+  "repository": "https://github.com/smilecc/react-easy-linkify",
   "author": "smilecc",
   "license": "MIT",
   "scripts": {
