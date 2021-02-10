@@ -1,13 +1,14 @@
 import React, { useMemo } from 'react';
 import { LinkifyCore, createOptions, IOptionsData, Options, IMultiToken } from './Core';
 
+let linkId = 0;
+
 // Given a string, converts to an array of valid React components
 // (which may include strings)
 export function stringToElements(str: string, opts: Options & IOptionsData) {
 
   let tokens = LinkifyCore.tokenize(str);
   let elements = [];
-  var linkId = 0;
 
   for (var i = 0; i < tokens.length; i++) {
     let token = tokens[i];

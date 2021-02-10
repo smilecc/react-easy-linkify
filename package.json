@@ -1,7 +1,7 @@
 {
   "name": "react-easy-linkify",
   "private": false,
-  "version": "1.0.0-alpha",
+  "version": "1.0.4-alpha",
   "description": "Easy react linkify, includes mention and hashtag. Write with typescript.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

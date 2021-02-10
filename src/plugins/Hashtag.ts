@@ -35,6 +35,7 @@ export class HashtagPlugin extends BasePlugin<HashtagPluginInit> {
     S_HASH.on(TT.DOMAIN, S_HASHTAG);
     S_HASH.on(TT.TLD, S_HASHTAG);
     S_HASH.on(TT.LOCALHOST, S_HASHTAG);
+    S_HASH.on(TT.NUM, S_HASHTAG);
   }
 }
 

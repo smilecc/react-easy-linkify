@@ -60,8 +60,8 @@ export const NUMBERS = '0123456789'.split('');
 export const ALPHANUM = '0123456789abcdefghijklmnopqrstuvwxyz'.split('');
 export const WHITESPACE = [' ', '\f', '\r', '\t', '\v', '\u00a0', '\u1680', '\u180e']; // excluding line breaks
 
-let domainStates: any[] = []; // states that jump to DOMAIN on /[a-z0-9]/
-let makeState = (tokenClass?: any): IBaseState => new State(tokenClass);
+export let domainStates: IBaseState[] = []; // states that jump to DOMAIN on /[a-z0-9]/
+export let makeState = (tokenClass?: any): IBaseState => new State(tokenClass);
 
 // Frequently used states
 const S_START = makeState();

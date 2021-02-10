@@ -17,7 +17,7 @@ export class TicketPlugin extends BasePlugin<TicketPluginInit> {
     const S_START = linkify.parser.start;
 
     return {
-      S_HASH: S_START.jump(TT.POUND),
+      S_HASH: S_START.jump(TT.AMPERSAND),
       S_TICKET: new linkify.parser.State(this.StateStorage),
     };
   }

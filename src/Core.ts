@@ -67,9 +67,18 @@ export namespace LinkifyCore {
   export const PluginManager = LinkifyPluginManager;
 
   export const addCharsSupport = (stringOrReg: string | string[] | RegExp) => {
-    const { S_DOMAIN, start } = scanner;
+    const { S_DOMAIN, S_NUM, start, domainStates } = scanner;
     S_DOMAIN.on(stringOrReg, S_DOMAIN);
     start.on(stringOrReg, S_DOMAIN);
+
+    LinkifyPluginManager.Plugins.hashtag.initAdpters.push((init) => {
+      S_NUM.on(stringOrReg, S_NUM);
+      return init;
+    });
+
+    for (const domainState of domainStates) {
+      domainState.on(stringOrReg, S_DOMAIN);
+    }
   }
 }
 
